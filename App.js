@@ -1,21 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './Screens/Login';
+import SignUp from './Screens/SignUp';
+import PlayScreen from './Screens/PlayScreen';
+import Selectbot from './Screens/Selectbot';
+import ContactList from './Screens/ContactList';
+import Addfriend from './Screens/Addfriend';
+import Game from './Screens/Game';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Game" component={Game} />
+        <Stack.Screen name="ContactList" component={ContactList} />
+        <Stack.Screen name="Addfriend" component={Addfriend} />
+        <Stack.Screen name="Selectbot" component={Selectbot} />
+        <Stack.Screen name="Play Screen" component={PlayScreen} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
